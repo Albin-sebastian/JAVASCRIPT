@@ -10,10 +10,10 @@ const emailError = document.getElementById('email-error');
 const messageError = document.getElementById('message-error');
 const submitError = document.getElementById('subit-error');
 
-nameInput.addEventListener('keyup', validateName);
+nameInput.addEventListener('input', validateName);
 phoneInput.addEventListener('input', validatePhone);
-emailInput.addEventListener('keyup', validateEmail);
-messageInput.addEventListener('keyup', validateMessage);
+emailInput.addEventListener('input', validateEmail);
+messageInput.addEventListener('input', validateMessage);
 submit.addEventListener('click', validateForm);
 
 function validateName() {
@@ -76,6 +76,8 @@ function validatePhone() {
   phoneError.innerHTML = '<i class="fas fa-check-circle"></i>';
   return true;
 }
+
+
 function validateEmail() {
   // var email = document.getElementById('contact-email').value;
   const email = emailInput.value;
@@ -125,7 +127,7 @@ function validateMessage() {
     return false;
   }
 
-  messageError.textContent = '<i class="fas fa-check-circle"></i>';
+  messageError.innerHTML = '<i class="fas fa-check-circle"></i>';
   return true;
 }
 
