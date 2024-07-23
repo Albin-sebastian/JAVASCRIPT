@@ -24,23 +24,23 @@
 
       <div class="input-group">
         <label>Phone No.</label>
-        <input type="tel" placeholder="123 456 7890" id="contact-phone" required>
+        <input type="tel" placeholder="1234567890" id="contact-phone" required>
         <span id="phone-error"></span>
       </div>
 
       <div class="input-group">
         <label>Email Id</label>
-        <input type="email" placeholder="Enter Email" id="contact-email" onkeyup="validateEmail()">
+        <input type="email" placeholder="Enter Email" id="contact-email" required>
         <span id="email-error"></span>
       </div>
 
       <div class="input-group">
         <label>Your Message</label>
-        <textarea rows="5" placeholder="Enter your message" id="contact-message" onkeyup="validateMessage()"></textarea>
+        <textarea rows="5" placeholder="Enter your message" id="contact-message" maxlength="30"></textarea>
         <span id="message-error"></span>
       </div>
 
-      <button onclick="return validateForm()">Submit</button>
+      <button id="submit">Submit</button>
       <span id="submit-error"></span>
     </form>
   </div>

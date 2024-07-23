@@ -23,7 +23,7 @@ form {
   position: relative;
 }
 
-form i {
+form .fa-paper-plane {
   position: absolute;
   top: 0;
   left: 50%;
@@ -77,6 +77,14 @@ form button {
   cursor: pointer;
   display: block;
   margin: 30px auto 10px;
+}
+
+.input-group span {
+  position: absolute;
+  bottom: 12px;
+  right: 17px;
+  font-size: 14px;
+  color: red;
 }
 
 #submit-error {
