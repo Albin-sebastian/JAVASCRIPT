@@ -8,15 +8,12 @@ const nameError = document.getElementById('name-error');
 const phoneError = document.getElementById('phone-error');
 const emailError = document.getElementById('email-error');
 const messageError = document.getElementById('message-error');
-const submitError = document.getElementById('subit-error');
+const submitError = document.getElementById('submit-error');
 
-nameInput.addEventListener('input', validateName);
-phoneInput.addEventListener('input', validatePhone);
-emailInput.addEventListener('input', validateEmail);
-messageInput.addEventListener('input', validateMessage);
-submit.addEventListener('click', validateForm);
+const form = document.getElementById('contact-form');
 
-function validateName() {
+
+const validateName = () => {
   const name = nameInput.value;
   console.log(name);
   if (name.trim() === '') {
@@ -36,7 +33,7 @@ function validateName() {
   return true;
 }
 
-function validatePhone() {
+const validatePhone = () => {
 
   const phoneNumber = phoneInput.value.replace(/\D+/g, '');
   // remove non-digit characters
@@ -78,7 +75,7 @@ function validatePhone() {
 }
 
 
-function validateEmail() {
+const validateEmail = () => {
   // var email = document.getElementById('contact-email').value;
   const email = emailInput.value;
   if (email.length == 0) {
@@ -116,9 +113,9 @@ function validateEmail() {
   return true;
 }
 
-function validateMessage() {
+const validateMessage = () => {
   const message = messageInput.value;
-  // var message = document.getElementById('contact-message').value;
+
   var required = 30;
   var left = required - message.length;
 
@@ -131,23 +128,27 @@ function validateMessage() {
   return true;
 }
 
-function validateForm() {
-  if (!validateName() || !validatePhone() || !validateEmail() || !validateMessage()) {
+// const validateForm = () => {
+//   if (!validateName() || !validatePhone() || !validateEmail() || !validateMessage()) {
+//     submitError.style.display = 'block';
+//     submitError.textContent = 'Please fix error to submit';
+//     setTimeout(() => { submitError.style.display = 'none'; }, 15000);
+//     return false;
+//   }
+// }
+
+const validateForm = () => {
+  if (![validateName(), validatePhone(), validateEmail(), validateMessage()].every(Boolean)) {
     submitError.style.display = 'block';
     submitError.textContent = 'Please fix error to submit';
     setTimeout(() => { submitError.style.display = 'none'; }, 3000);
     return false;
   }
+  else {
+    return true;
+  }
 }
 
-// function validateForm() {
-//   if (![validateName(), validatePhone(), validateEmail(), validateMessage()].every(Boolean)) {
-//     submitError.style.display = 'block';
-//     submitError.innerHTML = 'Please fix error to submit';
-//     setTimeout(() => { submitError.style.display = 'none'; }, 3000);
-//     return false;
-//   }
-// }
 
 // const validationFunctions = [validateName, validatePhone, validateEmail, validateMessage];
 
@@ -159,3 +160,19 @@ function validateForm() {
 //     return false;
 //   }
 // }
+
+nameInput.addEventListener('input', validateName);
+phoneInput.addEventListener('input', validatePhone);
+emailInput.addEventListener('input', validateEmail);
+messageInput.addEventListener('input', validateMessage);
+submitButton.addEventListener('click', validateForm);
+
+form.addEventListener('submit', (e) => {
+  // e.preventDefault();
+  if (!validateForm()) {
+    e.preventDefault();
+  }
+  else {
+    form.submit();
+  }
+});
