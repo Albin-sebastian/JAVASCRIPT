@@ -60,3 +60,7 @@ button {
 .equal {
   width: 120px;
 }
+
+.operator {
+  color: #20c217;
+}
