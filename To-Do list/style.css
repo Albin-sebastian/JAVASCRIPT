@@ -69,13 +69,16 @@ ul li {
   user-select: none;
   cursor: pointer;
   position: relative;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 ul li::before {
   content: "";
   position: absolute;
-  height: 28px;
-  width: 28px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   background-image: url(images/unchecked.png);
   background-size: cover;
@@ -91,4 +94,21 @@ ul li.checked {
 
 ul li.checked::before {
   background-image: url(images/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background: #ccd8f0;
 }
