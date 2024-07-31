@@ -9,16 +9,18 @@
 </head>
 
 <body>
-  <div class="container">
-    <p>enter text or URL</p>
-    <input type="text" placeholder="text or URL" id="qrText">
-    <div id="imgBox">
-      <img src="" id="qrImage" alt="">
-    </div>
-
-
-    <button id="btn">Generate QR Code</button>
-  </div>
+  <main class="container">
+    <section class="input-section">
+      <label for="qrText">Enter text or URL:</label>
+      <input type="text" id="qrText" placeholder="Text or URL" autocomplete="off">
+    </section>
+    <section class="qr-section">
+      <div id="imgBox">
+        <img src="" id="qrImage">
+      </div>
+    </section>
+    <button id="btn" type="button">Generate QR Code</button>
+  </main>
 
   <script src="script.js"></script>
 </body>
